@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import BlogList from '../../components/blogList'
 
 class BlogPage extends React.Component {
+
     static propTypes = {
       blog: PropTypes.array.isRequired
     };
@@ -10,6 +12,7 @@ class BlogPage extends React.Component {
         return (
             <div>
                 <h2>blog</h2>
+                <BlogList/>
             </div>
         );
     }
