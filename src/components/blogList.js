@@ -1,12 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const BlogList = props => {
+const BlogList = ({blog}) => {
+    const empty = (
+        <p>Yazı yok.</p>
+    );
+    const blogList = (
+        <p>blog list</p>
+    );
   return(
       <div>
-        blog list
+          {blog.length === 0 ? empty : blogList}
       </div>
   )
 };
 
+BlogList.propTypes = {
+    blog: PropTypes.array.isRequired
+};
 
 export default BlogList
