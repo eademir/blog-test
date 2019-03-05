@@ -6,7 +6,7 @@ const BlogList = ({blog}) => {
         <p>Yazı yok.</p>
     );
     const blogList = (
-        <p>blog list</p>
+        <p>yazı var</p>
     );
   return(
       <div>
