@@ -8,8 +8,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Link to={'blogs'}>Blogs</Link>
-          <Link to={'/'}>Main</Link>
-          <Route path={'/'} component={App}/>
           <Route path={'/blogs'} component={BlogPage}/>
         </header>
       </div>

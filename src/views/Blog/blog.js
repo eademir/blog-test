@@ -12,7 +12,7 @@ class BlogPage extends React.Component {
         return (
             <div>
                 <h2>blog</h2>
-                <BlogList/>
+                <BlogList blog={'deneme'}/>
             </div>
         );
     }
