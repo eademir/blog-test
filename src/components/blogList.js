@@ -16,7 +16,7 @@ const BlogList = ({blog}) => {
 };
 
 BlogList.propTypes = {
-    blog: PropTypes.array.isRequired
+    blog: PropTypes.string.isRequired
 };
 
 export default BlogList

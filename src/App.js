@@ -2,33 +2,25 @@ import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom'
 import BlogPage from './views/Blog/blog'
 import 'semantic-ui-css/semantic.min.css'
-import {Container, Divider, Dropdown, Grid, Header, Icon, Image, List, Menu, Segment, Visibility,} from 'semantic-ui-react'
+import {Container, Image, Menu} from 'semantic-ui-react'
+import Footer from './components/footer'
 import { menuStyle, fixedMenuStyle} from "./helper/stylehelper";
 
 class App extends Component {
 
     state = {
-        menuFixed: false,
+        menuFixed: null,
         overlayFixed: false,
     };
 
-    stickTopMenu = () => this.setState({ menuFixed: true });
-
-    unStickTopMenu = () => this.setState({ menuFixed: false });
-
   render() {
-      const { menuFixed, overlayFixed, overlayRect } = this.state;
-    return (
-      <div>
+      const { menuFixed } = this.state;
+      return (
+          <div>
 
-          {/* Attaching the top menu is a simple operation, we only switch `fixed` prop and add another style if it has
+              {/* Attaching the top menu is a simple operation, we only switch `fixed` prop and add another style if it has
             gone beyond the scope of visibility
           */}
-          <Visibility
-              onBottomPassed={this.stickTopMenu}
-              onBottomVisible={this.unStickTopMenu}
-              once={false}
-          >
               <Menu
                   borderless
                   fixed={menuFixed ? 'top' : undefined}
@@ -36,83 +28,74 @@ class App extends Component {
               >
                   <Container text>
                       <Menu.Item>
-                          <Image size='mini' src='/logo.png' />
+                          <Image size='mini' src='/logo.png'/>
                       </Menu.Item>
                       <Menu.Item header>blog-test</Menu.Item>
-                      <Menu.Item as='a'>
-                          <Link to={'blogs'}>Blogs</Link>
+                      <Menu.Item as={Link} to='/blogs'>
+                          Blogs
                       </Menu.Item>
                       <Menu.Item as='a'>Add Blog</Menu.Item>
 
                   </Container>
               </Menu>
-          </Visibility>
 
-          <Container text>
-              <Route path={'/blogs'} component={BlogPage}/>
-
-          </Container>
-
-          <Segment inverted style={{ margin: '5em 0em 0em', padding: '5em 0em' }} vertical>
-              <Container textAlign='center'>
-                  <Grid columns={4} divided stackable inverted>
-                      <Grid.Row>
-                          <Grid.Column>
-                              <Header inverted as='h4' content='Group 1' />
-                              <List link inverted>
-                                  <List.Item as='a'>Link One</List.Item>
-                                  <List.Item as='a'>Link Two</List.Item>
-                                  <List.Item as='a'>Link Three</List.Item>
-                                  <List.Item as='a'>Link Four</List.Item>
-                              </List>
-                          </Grid.Column>
-                          <Grid.Column>
-                              <Header inverted as='h4' content='Group 2' />
-                              <List link inverted>
-                                  <List.Item as='a'>Link One</List.Item>
-                                  <List.Item as='a'>Link Two</List.Item>
-                                  <List.Item as='a'>Link Three</List.Item>
-                                  <List.Item as='a'>Link Four</List.Item>
-                              </List>
-                          </Grid.Column>
-                          <Grid.Column>
-                              <Header inverted as='h4' content='Group 3' />
-                              <List link inverted>
-                                  <List.Item as='a'>Link One</List.Item>
-                                  <List.Item as='a'>Link Two</List.Item>
-                                  <List.Item as='a'>Link Three</List.Item>
-                                  <List.Item as='a'>Link Four</List.Item>
-                              </List>
-                          </Grid.Column>
-                          <Grid.Column>
-                              <Header inverted as='h4' content='Footer Header' />
-                              <p>
-                                  Extra space for a call to action inside the footer that could help re-engage
-                                  users.
-                              </p>
-                          </Grid.Column>
-                      </Grid.Row>
-                  </Grid>
-                  <Divider inverted section />
-                  <Image src='/logo.png' centered size='mini' />
-                  <List horizontal inverted divided link size='small'>
-                      <List.Item as='a' href='#'>
-                          Site Map
-                      </List.Item>
-                      <List.Item as='a' href='#'>
-                          Contact Us
-                      </List.Item>
-                      <List.Item as='a' href='#'>
-                          Terms and Conditions
-                      </List.Item>
-                      <List.Item as='a' href='#'>
-                          Privacy Policy
-                      </List.Item>
-                  </List>
+              <Container text>
+                  <Route path={'/blogs'} component={BlogPage}/>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias blanditiis quis tenetur. Commodi
+                      corporis debitis delectus eius error esse incidunt, numquam quas, quidem, reiciendis repellat
+                      saepe
+                      sapiente temporibus ullam vero.
+                  </div>
+                  <div>Aliquam exercitationem mollitia perferendis? Alias aspernatur at debitis deserunt ducimus, ea eos
+                      et
+                      facere facilis, impedit ipsam ipsum magnam, molestiae nisi non praesentium qui repudiandae ut vel
+                      voluptatum! Eius, placeat?
+                  </div>
+                  <div>Accusantium, doloribus, praesentium! Cumque, quibusdam, ut! Accusamus alias assumenda, deleniti
+                      dolorum enim laboriosam minus nisi odit placeat provident recusandae reiciendis repellendus velit
+                      veniam voluptatum! Corporis dignissimos perferendis repellat rerum ut.
+                  </div>
+                  <div>Beatae deserunt dignissimos excepturi id iure nemo nihil, numquam quasi sequi veniam. Ad
+                      consequuntur
+                      deserunt dolor earum explicabo fuga impedit ipsam laudantium maxime perferendis perspiciatis
+                      quibusdam
+                      similique totam, voluptatem voluptatibus.
+                  </div>
+                  <div>Debitis deserunt enim magni nam odit quis sint? Ab animi aperiam beatae, consequuntur cum
+                      cupiditate
+                      dicta dolores earum eius eligendi hic labore mollitia nam, provident quibusdam tempora tenetur
+                      veniam
+                      vitae!
+                  </div>
+                  <div>Aperiam commodi consectetur dicta doloremque eaque exercitationem ipsam laborum nemo, nulla
+                      pariatur
+                      quia quibusdam quisquam, recusandae tenetur voluptatibus! Aspernatur distinctio eveniet ex illo
+                      nulla
+                      obcaecati optio saepe similique tempore vel?
+                  </div>
+                  <div>Doloremque non provident quae tempora tempore temporibus! Asperiores, distinctio laudantium neque
+                      officia quae reiciendis vitae! Aliquam animi commodi delectus dicta ea enim facere itaque maxime
+                      perspiciatis quo. Facere in, molestiae.
+                  </div>
+                  <div>Aperiam, architecto aut commodi earum explicabo harum itaque maxime minima molestiae nesciunt
+                      nisi
+                      officia praesentium quos repellat velit! Aperiam dolores esse eveniet illo in maxime molestiae
+                      molestias odit quibusdam tenetur.
+                  </div>
+                  <div>Doloribus, earum incidunt itaque nesciunt quasi ratione ullam veritatis vero? Dolorum illo
+                      impedit
+                      iure, iusto maiores minus molestias nihil quis quod ratione rerum sapiente tempore vero. Ad maxime
+                      nulla quos!
+                  </div>
+                  <div>Cum doloremque, eveniet explicabo illo in maiores mollitia provident, quae quia quibusdam quis
+                      similique sunt tempore temporibus, voluptate? Dolorem ea earum fugit ipsam officia placeat
+                      provident
+                      similique. Dolorem, fuga, repellendus?
+                  </div>
               </Container>
-          </Segment>
-      </div>
-    );
+              <Footer/>
+          </div>
+      );
   }
 }
 
